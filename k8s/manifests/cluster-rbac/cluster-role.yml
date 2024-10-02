@@ -6,3 +6,12 @@ rules:
   - apiGroups: [""]
     resources: ["persistentvolumes"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    # Permissions for Custom Resource Definitions (CRDs)
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  # Permissions for Services, Deployments, and Pods
+  - apiGroups: ["", "apps", "extensions"]
+    resources: ["services", "deployments", "pods"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Service
 metadata:
-  name: bule-green-service
+  name: blue-green-service
 spec:
   type: LoadBalancer
   ports:
