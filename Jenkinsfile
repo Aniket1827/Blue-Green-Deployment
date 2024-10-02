@@ -141,7 +141,7 @@ pipeline {
 
                     withKubeConfig(caCertificate: '', clusterName: 'blue-green-deployment', contextName: '', credentialsId: 'k8-token', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://760A19FCA77B331AB9596621D09515F0.gr7.us-east-1.eks.amazonaws.com') {
                         sh '''
-                            kubectl patch service blue-green-service -p "{\\"spec\\": {\\"selector\\": {\\"app\\": \\"bankapp\\", \\"version\\": \\"''' + newEnv + '''\\"}}}"
+                            kubectl patch service blue-green-service -p "{\\"spec\\": {\\"selector\\": {\\"app\\": \\"blue-green-deployment-app\\", \\"version\\": \\"''' + newEnv + '''\\"}}}"
                         '''
                     }
                     echo "Traffic has been switched to the ${newEnv} environment."
